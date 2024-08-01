@@ -1,0 +1,259 @@
+/*import Header from "./Header"
+function App(){
+retur (<Header/>);
+}
+export default App*/ 
+/*import Footer from "./Footer";
+function App(){
+  return (<Footer/>);
+}
+export default App;*/
+/*import Food from "./Food";
+function App(){
+  return (<Food/>);
+}
+export default APP;*/
+/*import Card from "./card";
+function App(){
+  <>
+  return(<Card/>
+          <Card/>
+          <Card/>
+          <Card/>
+          <Card/> );
+  </>
+}
+export default App;*/
+/*import Button  from "./Buttton/Button";
+function App(){
+  return(<Button/>);
+}
+export default App;*/
+import Student from "./Student"
+function App(){
+  <>
+  return(
+    <Student name = "Spongebob" age = {30} isStudent = {true}/>
+    <Student name = "Herick" age = {60} isStudent = {false}/>
+    <Student name = "Adrian" age = {70} isStudent = {false}/>
+    <Student/>
+  );
+  </>
+}
+export default App;
+/*import UserGreeding from "./UserGreeding";
+function App(){
+  return ( <UserGreeding isLoggedIn = {false}username = "Kiprotich"/>);
+}
+export default App;*/
+/*import List from './List';
+function App() {
+  const Fruits = [{id:1, name:"Orange", categories: 99},
+                 {id:2, name:"Banana", categories:88},
+                 {id:3, name:"Apple", categories:77},
+                 {id:4, name:"Dragonfruits", categories:55},
+                 {id:5, name:"Mango", categories:100}]; 
+
+  const Vegetables = [{id:6, name:"Corn", categories:199},
+                  {id:7, name:"Potatoes", categories:288},
+                  {id:8, name:"Celery", categories:177},
+                  {id:9, name:"Carrots", categories:255},
+                  {id:10, name:"Broccoli", categories:120}];
+ return (
+  <>
+ <List items={Fruits}  category="Fruits"/>
+ <List items={Vegetables}  category="Vegetables"/>
+
+ </>);
+
+}
+export default App;*/
+
+Buttton.jsx
+//modules styling
+import style from './Button.module.css'
+
+function Button(){
+    return(<button className={style.Button}>Click Me</button>);
+}
+export default Button
+//modules styling
+import style from './Button.module.css'
+
+function Button(){
+    return(<button className={style.Button}>Click Me</button>);
+}
+export default Button
+import profileimg from './assets/profile/profile.jpg';
+function Card(){
+    return(
+        <div className="Card">
+            <img className='Card-img' src={profileimg} alt='profile p' style={{width: "30%", height: "20%"}}></img>
+            <h1 className='Card-title'>Kiprotich Marion</h1>
+            <p className='Card-text'>Am a frontend developer currently am working with safaricom house nairobi</p>
+        </div>
+    );
+}
+export default Card
+
+function Food(){
+    const food1 = "orange";
+    const food2 = "banana";
+    return(
+        <ul>
+            <li>Apple</li>
+            <li>{food1}</li>
+            <li>{food2.toUpperCase}</li>
+        </ul>
+    );
+}
+export default Food
+
+
+function Header(){
+    return(
+      <header>
+        <h1>My First react website</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Services</a></li>
+            </ul>
+        </nav>
+        <hr></hr>
+      </header>
+    );
+}
+export default Header
+function List(props){
+
+    const category = props.category;
+    const itemlist = props.items; 
+    const Listitems = itemlist.map(item =><li key={item.id}>
+        {item.name}: &nbsp;
+        <b>{item.categories}</b> </li>)
+    return (
+    <> 
+        <h3 className="list-category">{category}</h3> 
+        <ol className="list-items">{Listitems}</ol>
+     </> 
+     );  
+
+    }
+export default List
+import proptype from "prop-types"
+function Student(props){
+    return(
+        <div className="Student">
+           <p>Name: {props.name}</p>
+           <p>Age: {props.age}</p>
+           <p>Student: {props.isStudent ? "Yes" : "No"}</p>
+        </div>
+    );
+}
+ Student.proptype ={
+    name: proptype.string,
+    age: proptype.number,
+    isStudent: proptype.bool,
+ }
+Student.defaultprop ={
+    name: "Guest",
+    age: 0,
+    isStudent: false,
+}
+export default Student
+ import proptype from 'prop-types';
+ function UserGreeding(props){
+    //condition rendering
+   /* if(props.isLoggedIn){
+        return <h2 className="welcom-massege">Welcome {props.username}</h2>
+    }
+    return <h2 className="login-prompt">Plese log in to continue</h2>
+ }*/
+// use of ternary operator
+const welcommassege =  <h2 className='welcome-massege'>Welcome {props.username}</h2>;
+const loginpromp =  <h2 className='login-prompt'>Please log in to continue</h2>
+    return (props.isLoggedIn? welcommassege :loginpromp );
+//proptype
+ UserGreeding.proptype={
+    isLoggedIn: proptype.bool,
+    username: proptype.string,
+ }
+//defaultprop
+ UserGreeding.defaultprops={
+    isLoggedIn: false,
+    username: "Guest",
+ }
+}
+ export default UserGreeding
+
+
+/*.Card{
+  border:  1px solid hsl(0, 0%, 80%);
+  border-radius: 10px;
+  padding: 20px;
+  margin: 10px;
+  box-shadow: 5px 5px 5px hsl(0, 0%, 0%, 0.5);
+  align-items: center;
+  display: inline-block;
+  max-width: 250px;
+}
+
+.Card .Card-img{
+  max-width: 60%;
+  height: auto;
+  border-radius: 50%;
+  margin-bottom: 10px ;
+}
+
+.Card .Card-title{
+  font-family: sans-serif Arial, Helvetica, sans-serif;
+  margin: 0;
+  color: hsl(0, 0%,20%);
+}
+.Card .Card-text{
+  font-family: sans-serif Arial, Helvetica, sans-serif;
+  color: hsl(0, 0%,40%);
+}*/
+/*.Student{
+  font-family: Arial, sans-serif;
+  font-size: 2rem;
+  border:  1px solid hsl(0, 50%, 0.8);
+}
+.Student p{
+  margin: 0;
+}*/
+.welcome-massege{
+  font-size: 2em;
+  background-color: hsl rgba(0, 128, 0, 0.708);
+  color: white;
+
+}
+
+.login-prompt{
+  font-size: 3em;
+  background-color: red;
+  color: white;
+}
+.list-category{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 2em;
+  background-color: azure;
+  color: grey;
+  margin-bottom: 10px;
+  text-align: start;
+  font-weight: 600;
+}
+.list-items li{
+background-color: azure;
+color: grey;
+padding-left: 20px;
+}
+.list-items li:hover{
+  color: beige;
+  cursor: pointer;
+}
+
+
